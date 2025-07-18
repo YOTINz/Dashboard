@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>กองประเมินวิชาการ</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .card-shadow {
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.07), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased">
+
+    <!-- Main container -->
+    <div class="flex flex-col items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+
+        <!-- Header Section -->
+        <header class="text-center mb-8 md:mb-12">
+            <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-slate-900 tracking-tight">
+                Dashboard แสดงการทำงานของผู้เชี่ยวชาญ
+            </h1>
+            <p class="mt-3 text-base sm:text-lg text-slate-600 max-w-2xl mx-auto">
+                ภาพรวมข้อมูลเชิงลึกเพื่อการตัดสินใจ workload ของผู้เชี่ยวชาญ
+            </p>
+        </header>
+
+        <!-- Power BI Iframe Container (Responsive) -->
+        <main class="w-full max-w-screen-xl mx-auto">
+            <div class="bg-white rounded-xl card-shadow overflow-hidden border border-slate-200/50">
+                <div class="relative w-full" style="padding-top: 56.25%;">
+                    <iframe 
+                        class="absolute top-0 left-0 w-full h-full"
+                        title="Power BI Report" 
+                        src="https://app.powerbi.com/view?r=eyJrIjoiODU1MmI4ODgtNzljZS00MDY5LTgyZWItZTgyNDM4NWNiM2RmIiwidCI6IjQzZDNlNWRmLTU2ZDItNGI3NS05MDI4LTE3ZDM0NzY0ZDFhMCIsImMiOjEwfQ%3D%3D" 
+                        frameborder="0" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer Section -->
+        <footer class="text-center mt-8 md:mt-12 text-slate-500">
+            <p>&copy; 2025 กองประเมินวิชาการผลิตภัณฑ์สุขภาพ</p> <br>
+	<p> Create By Yotin </p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
