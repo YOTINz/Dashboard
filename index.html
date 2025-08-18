@@ -3,52 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>รายงาน Power BI</title>
-    <!-- โหลด Tailwind CSS เพื่อการจัดสไตล์ -->
+    <title>Dashboard ข้อมูลกองยา</title>
+    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts for Thai font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- โหลดฟอนต์ Inter -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* กำหนดฟอนต์หลักเป็น Inter */
+        /* Apply Sarabun font to the whole page */
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Sarabun', sans-serif;
+        }
+        /* Style for the iframe container to be responsive */
+        .iframe-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 65%; /* Aspect ratio 16:9, adjust as needed */
+        }
+        .iframe-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
     </style>
 </head>
-<body class="bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+<body class="bg-gray-50">
 
-    <!-- Container หลักของหน้าเว็บ -->
-    <div class="container mx-auto p-4 sm:p-6 lg:p-8">
-        
-        <!-- ส่วนหัวเรื่อง -->
-        <header class="text-center mb-6">
-            <h1 class="text-3xl sm:text-4xl font-bold text-blue-600 dark:text-blue-400">รายงาน Power BI Dashboard</h1>
-            <p class="mt-2 text-lg text-gray-600 dark:text-gray-300">ภาพรวมข้อมูลเชิงลึกจากรายงานของคุณ</p>
+    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-7xl">
+        <!-- Header Section -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Dashboard ภาพรวมข้อมูลกองยา</h1>
+            <p class="text-lg text-gray-600 mt-2">
+                แสดงผลข้อมูลสำคัญในรูปแบบ Interactive เพื่อการวิเคราะห์และตัดสินใจ
+            </p>
         </header>
 
-        <!-- ส่วนที่ใช้แสดงผลรายงาน Power BI -->
+        <!-- Main Content: Power BI Dashboard -->
         <main>
-            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-700">
-                <!-- โค้ด iframe ที่ได้จาก Power BI จะถูกวางไว้ที่นี่ -->
-                <!-- ปรับความสูงของ iframe เพื่อลดพื้นที่ว่างด้านล่าง -->
-                <iframe 
-                    title="New_V" 
-                    src="https://app.powerbi.com/view?r=eyJrIjoiZDA3MDJkNmUtNWJhNS00NDY2LWJhZDEtOTQ2Njk3MjM3MWNiIiwidCI6IjQzZDNlNWRmLTU2ZDItNGI3NS05MDI4LTE3ZDM0NzY0ZDFhMCIsImMiOjEwfQ%3D%3D" 
-                    frameborder="0" 
-                    allowFullScreen="true"
-                    class="w-full h-[68vh] min-h-[550px]">
-                </iframe>
+            <div class="bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200">
+                <div class="iframe-container">
+                    <!-- Your Power BI embed code -->
+                    <iframe 
+                        title="Dashboard กองยา" 
+                        src="https://app.powerbi.com/view?r=eyJrIjoiZjdjYjAwZWYtZjExYy00YmJiLWEyZjktNmI4YzI5ZWM2MmM1IiwidCI6IjQzZDNlNWRmLTU2ZDItNGI3NS05MDI4LTE3ZDM0NzY0ZDFhMCIsImMiOjEwfQ%3D%3D" 
+                        allowFullScreen="true">
+                    </iframe>
+                </div>
             </div>
         </main>
 
-        <!-- ส่วนท้ายเว็บ -->
-        <footer class="text-center mt-8 text-gray-500 dark:text-gray-400">
-            <p>&copy; 2024 - สร้างโดย Gemini</p>
+        <!-- Footer Section -->
+        <footer class="text-center mt-10 text-gray-500 text-sm">
+            <p>&copy; 2024 - จัดทำโดย กองยา</p>
+            <p>ข้อมูล ณ วันที่ <span id="current-date"></span></p>
         </footer>
-
     </div>
+
+    <script>
+        // Simple script to display the current date in the footer
+        const dateElement = document.getElementById('current-date');
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Bangkok' };
+        dateElement.textContent = today.toLocaleDateString('th-TH', options);
+    </script>
 
 </body>
 </html>
