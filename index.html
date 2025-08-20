@@ -3,74 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard ข้อมูลกองยา</title>
-    <!-- Tailwind CSS for styling -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts for Thai font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@400;700&display=swap" rel="stylesheet">
+    <title>กองประเมินวิชาการผลิตภัณฑ์สุขภาพ</title>
     <style>
-        /* Apply Sarabun font to the whole page */
         body {
-            font-family: 'Sarabun', sans-serif;
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #eef2f3, #dfe9f3);
+            color: #2f3640;
         }
-        /* Style for the iframe container to be responsive */
-        .iframe-container {
-            position: relative;
-            overflow: hidden;
-            width: 100%;
-            padding-top: 65%; /* Aspect ratio 16:9, adjust as needed */
+        header {
+            background: linear-gradient(135deg, #192a56, #273c75);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
-        .iframe-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
+        header h1 {
+            margin: 0;
+            font-size: 2.2rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        header p {
+            margin: 8px 0 0;
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        main {
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .dashboard-container {
+            background: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            max-width: 1100px;
             width: 100%;
-            height: 100%;
-            border: 0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .dashboard-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+        }
+        iframe {
+            width: 100%;
+            height: 620px;
+            border: none;
+            border-radius: 12px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #f1f2f6;
+            font-size: 0.95rem;
+            margin-top: 40px;
+            color: #57606f;
+            border-top: 1px solid #dcdde1;
         }
     </style>
 </head>
-<body class="bg-gray-50">
+<body>
+    <header>
+        <h1>Dashboard การขึ้นทะเบียนและแก้ไขข้อมูลยา</h1>
+        <p>ผู้รับผิดชอบ: กองประเมินวิชาการผลิตภัณฑ์สุขภาพ</p>
+        <p>ข้อมูลประจำวันที่ 15 สิงหาคม 2025</p>
+    </header>
+    
+    <main>
+        <div class="dashboard-container">
+            <iframe title="Dashboard" src="https://app.powerbi.com/view?r=eyJrIjoiNTRkZDE1YzUtN2U4Yi00MzU4LWI5MDktOTEyMmI3OTg5YjMxIiwidCI6IjQzZDNlNWRmLTU2ZDItNGI3NS05MDI4LTE3ZDM0NzY0ZDFhMCIsImMiOjEwfQ%3D%3D" allowFullScreen="true"></iframe>
+        </div>
+    </main>
 
-    <div class="container mx-auto p-4 sm:p-6 lg:p-8 max-w-7xl">
-        <!-- Header Section -->
-        <header class="text-center mb-8">
-            <h1 class="text-3xl sm:text-4xl font-bold text-gray-800">Dashboard ภาพรวมข้อมูลกองยา</h1>
-            <p class="text-lg text-gray-600 mt-2">
-                แสดงผลข้อมูลสำคัญในรูปแบบ Interactive เพื่อการวิเคราะห์และตัดสินใจ
-            </p>
-        </header>
-
-        <!-- Main Content: Power BI Dashboard -->
-        <main>
-            <div class="bg-white rounded-xl shadow-2xl overflow-hidden border border-gray-200">
-                <div class="iframe-container">
-                    <!-- Your Power BI embed code -->
-                    <iframe 
-                        title="Dashboard กองยา" 
-                        src="https://app.powerbi.com/view?r=eyJrIjoiZjdjYjAwZWYtZjExYy00YmJiLWEyZjktNmI4YzI5ZWM2MmM1IiwidCI6IjQzZDNlNWRmLTU2ZDItNGI3NS05MDI4LTE3ZDM0NzY0ZDFhMCIsImMiOjEwfQ%3D%3D" 
-                        allowFullScreen="true">
-                    </iframe>
-                </div>
-            </div>
-        </main>
-
-        <!-- Footer Section -->
-        <footer class="text-center mt-10 text-gray-500 text-sm">
-            <p>&copy; 2024 - จัดทำโดย กองยา</p>
-            <p>ข้อมูล ณ วันที่ <span id="current-date"></span></p>
-        </footer>
-    </div>
-
-    <script>
-        // Simple script to display the current date in the footer
-        const dateElement = document.getElementById('current-date');
-        const today = new Date();
-        const options = { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'Asia/Bangkok' };
-        dateElement.textContent = today.toLocaleDateString('th-TH', options);
-    </script>
-
+    <footer>
+        © 2025 กองประเมินวิชาการผลิตภัณฑ์สุขภาพ | จัดทำเพื่อการนำเสนอข้อมูล
+    </footer>
 </body>
 </html>
